@@ -134,7 +134,7 @@ const Landing = () => {
           </div>
 
           <div className="contact-info">
-            <p className="email-display">contact@supanroy.com</p>
+            <p className="email-display">📧 contact@supanroy.com</p>
           </div>
         </div>
       </section>
