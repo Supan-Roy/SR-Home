@@ -15,6 +15,7 @@ const Landing = () => {
           <ul className="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="https://compiler.supanroy.com/" target="_blank" rel="noopener noreferrer">Compiler</a></li>
             <li><a href="https://portfolio.supanroy.com" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
