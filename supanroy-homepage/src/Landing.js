@@ -1,11 +1,66 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './Landing.css';
 
 const Landing = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [messageOpen, setMessageOpen] = useState(false);
+  const [messageForm, setMessageForm] = useState({ name: '', email: '', message: '' });
+  const [messageError, setMessageError] = useState('');
+  const [sendStatus, setSendStatus] = useState('');
+  const [sending, setSending] = useState(false);
+
+  const emailServiceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+  const emailTemplateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const emailPublicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
   const handleContactClick = () => {
     window.location.href = 'mailto:contact@supanroy.com';
+  };
+
+  const handleMessageChange = (event) => {
+    const { name, value } = event.target;
+    setMessageForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleMessageSubmit = async (event) => {
+    event.preventDefault();
+    const trimmedName = messageForm.name.trim();
+    const trimmedMessage = messageForm.message.trim();
+
+    if (!trimmedName) {
+      setMessageError('Name is required.');
+      return;
+    }
+
+    if (!trimmedMessage) {
+      setMessageError('Please add a message.');
+      return;
+    }
+
+    if (!emailServiceId || !emailTemplateId || !emailPublicKey) {
+      setMessageError('Email service is not configured. Please try again later.');
+      return;
+    }
+
+    setMessageError('');
+    setSendStatus('');
+    setSending(true);
+
+    try {
+      await emailjs.send(emailServiceId, emailTemplateId, {
+        from_name: trimmedName,
+        reply_to: messageForm.email.trim() || 'not-provided',
+        message: trimmedMessage,
+      }, emailPublicKey);
+
+      setSendStatus('Message sent! I will get back to you soon.');
+      setMessageForm({ name: '', email: '', message: '' });
+    } catch (error) {
+      setMessageError('Failed to send. Please try again in a moment.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -165,6 +220,92 @@ const Landing = () => {
       <div className="floating-element element-1"></div>
       <div className="floating-element element-2"></div>
       <div className="floating-element element-3"></div>
+
+      {/* Floating message button */}
+      <div className="message-fab" aria-live="polite">
+        <button
+          type="button"
+          className="message-fab__button"
+          onClick={() => setMessageOpen((prev) => !prev)}
+          aria-expanded={messageOpen}
+          aria-controls="message-panel"
+        >
+          <span className="message-fab__icon">💬</span>
+          <span className="message-fab__label">Message</span>
+        </button>
+        <div
+          id="message-panel"
+          className={`message-panel ${messageOpen ? 'open' : ''}`}
+          role="dialog"
+          aria-modal="false"
+          aria-label="Send a message"
+        >
+          <div className="message-panel__header">
+            <div>
+              <p className="message-panel__eyebrow">Send a note</p>
+              <h3 className="message-panel__title">Message Supan</h3>
+            </div>
+            <button
+              type="button"
+              className="message-panel__close"
+              onClick={() => setMessageOpen(false)}
+              aria-label="Close message form"
+            >
+              ×
+            </button>
+          </div>
+
+          <form className="message-panel__form" onSubmit={handleMessageSubmit}>
+            <label className="message-panel__label" htmlFor="message-name">
+              Name <span className="message-panel__required">*</span>
+            </label>
+            <input
+              id="message-name"
+              name="name"
+              type="text"
+              value={messageForm.name}
+              onChange={handleMessageChange}
+              required
+              className="message-panel__input"
+              placeholder="Your name"
+            />
+
+            <label className="message-panel__label" htmlFor="message-email">
+              Email (optional)
+            </label>
+            <input
+              id="message-email"
+              name="email"
+              type="email"
+              value={messageForm.email}
+              onChange={handleMessageChange}
+              className="message-panel__input"
+              placeholder="you@example.com"
+            />
+
+            <label className="message-panel__label" htmlFor="message-body">
+              Message
+            </label>
+            <textarea
+              id="message-body"
+              name="message"
+              value={messageForm.message}
+              onChange={handleMessageChange}
+              className="message-panel__textarea"
+              placeholder="Say hello or share your idea"
+              rows="4"
+              required
+            ></textarea>
+
+            {messageError && <p className="message-panel__error">{messageError}</p>}
+            {sendStatus && <p className="message-panel__success">{sendStatus}</p>}
+
+            <button type="submit" className="message-panel__submit" disabled={sending}>
+              {sending ? 'Sending…' : 'Send'}
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
