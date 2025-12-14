@@ -158,7 +158,7 @@ const Landing = () => {
 
       {/* Footer */}
       <footer className="footer">
-        <p>&copy; 2025 Supan Roy. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Supan Roy. All rights reserved.</p>
       </footer>
 
       {/* Floating elements */}
