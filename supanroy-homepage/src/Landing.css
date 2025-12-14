@@ -64,6 +64,14 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -92,6 +100,122 @@ body {
 
 .nav-links a:hover::after {
   width: 100%;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .nav-content {
+    padding: 0 1rem;
+  }
+
+  .logo-img {
+    height: 35px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 10, 10, 0.98);
+    padding: 0;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-bottom: none;
+  }
+
+  .nav-links.active {
+    max-height: 500px;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 235, 59, 0.1);
+  }
+
+  .nav-links li {
+    padding: 0;
+  }
+
+  .nav-links li.mobile-hidden {
+    display: none;
+  }
+
+  .nav-links li.mobile-visible {
+    display: list-item;
+  }
+
+  .nav-links.active li.mobile-hidden {
+    display: list-item;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 235, 59, 0.1);
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 235, 59, 0.1);
+    color: var(--secondary);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-content {
+    padding: 0 0.75rem;
+  }
+
+  .logo-img {
+    height: 30px;
+  }
+
+  .nav-links a {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .hamburger span {
+    width: 20px;
+    height: 2.5px;
+  }
 }
 
 /* Hero Section */

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Landing.css';
 
 const Landing = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const handleContactClick = () => {
     window.location.href = 'mailto:contact@supanroy.com';
   };
@@ -11,14 +13,26 @@ const Landing = () => {
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-content">
-          <div className="logo">SR</div>
-          <ul className="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="https://compiler.supanroy.com/" target="_blank" rel="noopener noreferrer">Compiler</a></li>
-            <li><a href="https://portfolio.supanroy.com" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <div className="logo">
+            <img src="/favicon.svg" alt="SR Logo" className="logo-img" />
+          </div>
+          <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+            <li className="mobile-visible"><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
+            <li className="mobile-visible"><a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>
+            <li className="mobile-hidden"><a href="/extensions" onClick={() => setMenuOpen(false)}>Extensions</a></li>
+            <li className="mobile-hidden"><a href="https://compiler.supanroy.com/" target="_blank" rel="noopener noreferrer">Compiler</a></li>
+            <li className="mobile-visible"><a href="https://portfolio.supanroy.com" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+            <li className="mobile-hidden"><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
           </ul>
+          <button 
+            className={`hamburger ${menuOpen ? 'active' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </nav>
 
