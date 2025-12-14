@@ -34,10 +34,10 @@ const Extensions = () => {
             <li className="mobile-visible"><a href="/" onClick={() => setMenuOpen(false)}>About</a></li>
             <li className="mobile-visible"><a href="/#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>
             <li className="mobile-visible"><a href="https://portfolio.supanroy.com" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
-            <li className="mobile-visible"><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
+            <li className="mobile-visible"><a href="/projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
             <li className="mobile-hidden"><a href="/extensions" onClick={() => setMenuOpen(false)}>Extensions</a></li>
             <li className="mobile-hidden"><a href="https://compiler.supanroy.com/" target="_blank" rel="noopener noreferrer">Compiler</a></li>
-            <li className="mobile-hidden"><a href="#games" onClick={() => setMenuOpen(false)}>Games</a></li>
+            <li className="mobile-hidden"><a href="/games" onClick={() => setMenuOpen(false)}>Games</a></li>
             <li className="mobile-hidden"><a href="/#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
           </ul>
           <button 
