@@ -1,9 +1,19 @@
 {
   "short_name": "Supan Roy",
-  "name": "Supan Roy - Portfolio",
+  "name": "Supan Roy - Home",
   "icons": [
+    {      "src": "favicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
     {
-      "src": "favicon.svg",
+      "src": "favicon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {      "src": "favicon.svg",
       "type": "image/svg+xml",
       "sizes": "any"
     },
