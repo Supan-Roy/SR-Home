@@ -19,6 +19,30 @@ const Extensions = () => {
           url: 'https://open-vsx.org/extension/Supan-Roy/codestarter-sroy'
         }
       ]
+    },
+    {
+      id: 2,
+      title: 'Just The Answer',
+      description: 'Copy only the meaningful answer from AI responses. Clean and formatted for general pasting and using in Word and Google Docs.',
+      icon: '/just-the-answer-icon.png',
+      links: [
+        {
+          label: 'Chrome Web Store',
+          url: 'https://chromewebstore.google.com/detail/gnfmkpjejlmnohabakglhkfbailhabea?utm_source=item-share-cb'
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: 'Coding Mode',
+      description: 'Temporarily block AI chat sites during coding sessions; optional TOTP unlock.',
+      icon: '/coding-mode-icon.png',
+      links: [
+        {
+          label: 'Chrome Web Store',
+          url: 'https://chromewebstore.google.com/detail/hekkbldegloakmhpghkmfjdbdhpfeggp?utm_source=item-share-cb'
+        }
+      ]
     }
   ];
 
