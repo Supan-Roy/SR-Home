@@ -184,23 +184,23 @@ const Landing = () => {
 
           <div className="contact-options">
             <button className="cta-button primary" onClick={handleContactClick}>
-              <span className="button-icon">✉️</span>
+              <span className="button-icon"><img src="/icons8-email-64.png" alt="Email" style={{width:24,height:24,verticalAlign:'middle'}} /></span>
               <span>Email</span>
             </button>
             <a href="https://github.com/Supan-Roy" target="_blank" rel="noopener noreferrer" className="cta-button secondary">
-              <span className="button-icon">💻</span>
+              <span className="button-icon" style={{display:'inline-block',background:'#fff',borderRadius:'4px',width:18,height:18,verticalAlign:'middle',padding:0}}><img src="/github.png" alt="GitHub" style={{width:24,height:24,verticalAlign:'middle',display:'block',borderRadius:'4px',marginTop:'-3px',marginLeft:'-3px'}} /></span>
               <span>GitHub</span>
             </a>
             <a href="https://linkedin.com/in/supanroy" target="_blank" rel="noopener noreferrer" className="cta-button secondary">
-              <span className="button-icon">🔗</span>
+              <span className="button-icon"><img src="/linkedin.png" alt="LinkedIn" style={{width:24,height:24,verticalAlign:'middle'}} /></span>
               <span>LinkedIn</span>
             </a>
             <a href="https://codeforces.com/profile/supanroy" target="_blank" rel="noopener noreferrer" className="cta-button secondary">
-              <span className="button-icon">⚡</span>
+              <span className="button-icon"><img src="/icons8-codeforces-96.png" alt="CodeForces" style={{width:24,height:24,verticalAlign:'middle'}} /></span>
               <span>CodeForces</span>
             </a>
             <a href="https://leetcode.com/supanroy" target="_blank" rel="noopener noreferrer" className="cta-button secondary">
-              <span className="button-icon">💡</span>
+              <span className="button-icon"><img src="/icons8-leetcode-96.png" alt="LeetCode" style={{width:24,height:24,verticalAlign:'middle'}} /></span>
               <span>LeetCode</span>
             </a>
           </div>
