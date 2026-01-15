@@ -1,8 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Extensions.css';
 
 const Extensions = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [codeStarterInstalls, setCodeStarterInstalls] = useState(null);
+
+  // Fetch live installs for CodeStarter
+  useEffect(() => {
+    async function fetchInstalls() {
+      try {
+        const res = await fetch('/api/codestarter-installs');
+        if (res.ok) {
+          const data = await res.json();
+          setCodeStarterInstalls(data);
+        } else {
+          setCodeStarterInstalls(null);
+        }
+      } catch (err) {
+        setCodeStarterInstalls(null);
+      }
+    }
+    fetchInstalls();
+  }, []);
+
   const extensions = [
     {
       id: 1,
@@ -94,9 +114,29 @@ const Extensions = () => {
                 <img src={ext.icon} alt={ext.title} className="extension-icon" />
                 <h2 className="extension-title">{ext.title}</h2>
               </div>
-              
+              {ext.title === 'CodeStarter' && (
+                <div style={{
+                  position: 'absolute',
+                  top: '12px',
+                  right: '12px',
+                  background: 'rgba(255,255,255,0.10)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  color: '#FFD600',
+                  fontWeight: 600,
+                  borderRadius: '12px',
+                  padding: '4px 12px',
+                  fontSize: '0.95em',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                  zIndex: 2,
+                  border: '1px solid rgba(255,255,255,0.18)'
+                }}>
+                  {codeStarterInstalls !== null
+                    ? `Total Installs: ${codeStarterInstalls.total.toLocaleString()}`
+                    : 'Loading installs...'}
+                </div>
+              )}
               <p className="extension-description">{ext.description}</p>
-              
               <div className="extension-links">
                 {ext.links.map((link, idx) => (
                   <a
