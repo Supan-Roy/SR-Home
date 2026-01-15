@@ -8,6 +8,7 @@ export default async function handler(req, res) {
   try {
     // Open VSX API (statistics endpoint)
     const vsxRes = await fetch('https://open-vsx.org/api/Supan-Roy/codestarter-sroy');
+    
     if (vsxRes.ok) {
       const vsxData = await vsxRes.json();
       vsx = vsxData.downloadCount || 0;
