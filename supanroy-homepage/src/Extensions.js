@@ -134,12 +134,6 @@ const Extensions = () => {
                   {codeStarterInstalls !== null && typeof codeStarterInstalls.total === 'number'
                     ? `Total Installs: ${codeStarterInstalls.total.toLocaleString()}`
                     : 'Loading installs...'}
-                  {/* Debug: show full API response for troubleshooting */}
-                  {codeStarterInstalls && (
-                    <pre style={{fontSize: '0.7em', color: '#888', marginTop: '4px', background: 'none', border: 'none'}}>
-                      {JSON.stringify(codeStarterInstalls, null, 2)}
-                    </pre>
-                  )}
                 </div>
               )}
               <p className="extension-description">{ext.description}</p>

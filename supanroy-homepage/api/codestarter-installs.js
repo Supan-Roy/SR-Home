@@ -34,9 +34,6 @@ export default async function handler(req, res) {
     errorLog.push('VS Marketplace error: ' + err.message);
   }
   res.status(200).json({
-    total: vsx + vsm,
-    vsx,
-    vsm,
-    errorLog
+    total: vsx + vsm
   });
 }
