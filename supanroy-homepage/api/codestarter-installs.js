@@ -3,6 +3,8 @@
 
   let vsx = 0, vsm = 0;
   let errorLog = [];
+export default async function handler(req, res) {
+  let vsx = 0, vsm = 0, errorLog = [];
   try {
     // Open VSX API (statistics endpoint)
     const vsxRes = await fetch('https://open-vsx.org/api/Supan-Roy/codestarter-sroy/statistics');
