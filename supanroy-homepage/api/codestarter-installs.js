@@ -1,7 +1,6 @@
 // Vercel Serverless API route for CodeStarter installs
-import fetch from 'node-fetch';
 
-export default async function handler(req, res) {
+
   let vsx = 0, vsm = 0;
   let errorLog = [];
   try {
