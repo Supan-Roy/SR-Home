@@ -1,15 +1,20 @@
 // Vercel Serverless API route for CodeStarter installs
+import fetch from 'node-fetch';
+
 export default async function handler(req, res) {
   let vsx = 0, vsm = 0;
+  let errorLog = [];
   try {
     // Open VSX API (statistics endpoint)
     const vsxRes = await fetch('https://open-vsx.org/api/Supan-Roy/codestarter-sroy/statistics');
     if (vsxRes.ok) {
       const vsxData = await vsxRes.json();
-      vsx = vsxData.downloads || 0;
+      vsx = vsxData.downloadCount || 0;
+    } else {
+      errorLog.push('Open VSX fetch failed: ' + vsxRes.status);
     }
   } catch (err) {
-    // Optionally log error
+    errorLog.push('Open VSX error: ' + err.message);
   }
   try {
     // VS Marketplace API (unofficial, parses web page)
@@ -20,13 +25,16 @@ export default async function handler(req, res) {
       if (match) {
         vsm = parseInt(match[1].replace(/,/g, ''));
       }
+    } else {
+      errorLog.push('VS Marketplace fetch failed: ' + vsmRes.status);
     }
   } catch (err) {
-    // Optionally log error
+    errorLog.push('VS Marketplace error: ' + err.message);
   }
   res.status(200).json({
     total: vsx + vsm,
     vsx,
-    vsm
+    vsm,
+    errorLog
   });
 }
