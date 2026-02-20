@@ -9,9 +9,9 @@ const Projects = () => {
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-content">
-          <div className="logo">
+          <a className="logo" href="/" aria-label="Go to home page">
             <img src="/favicon.svg" alt="SR Logo" className="logo-img" />
-          </div>
+          </a>
           <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
             <li className="mobile-visible"><a href="/" onClick={() => setMenuOpen(false)}>About</a></li>
             <li className="mobile-visible"><a href="/#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>

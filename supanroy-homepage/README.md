@@ -45,4 +45,4 @@ npm test        # Run tests
 
 ## 📄 License & Copyright
 
-© 2025 Supan Roy. All rights reserved.
+© 2026 Supan Roy. All rights reserved.

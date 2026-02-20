@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './Landing.css';
 
@@ -9,6 +9,7 @@ const Landing = () => {
   const [messageError, setMessageError] = useState('');
   const [sendStatus, setSendStatus] = useState('');
   const [sending, setSending] = useState(false);
+  const messageFabRef = useRef(null);
 
   const emailServiceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
   const emailTemplateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
@@ -63,14 +64,34 @@ const Landing = () => {
     }
   };
 
+  useEffect(() => {
+    if (!messageOpen) {
+      return;
+    }
+
+    const handleOutsideClick = (event) => {
+      if (messageFabRef.current && !messageFabRef.current.contains(event.target)) {
+        setMessageOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('touchstart', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('touchstart', handleOutsideClick);
+    };
+  }, [messageOpen]);
+
   return (
     <div className="landing-container">
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-content">
-          <div className="logo">
+          <a className="logo" href="/" aria-label="Go to home page">
             <img src="/favicon.svg" alt="SR Logo" className="logo-img" />
-          </div>
+          </a>
           <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
             <li className="mobile-visible"><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
             <li className="mobile-visible"><a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>
@@ -222,7 +243,7 @@ const Landing = () => {
       <div className="floating-element element-3"></div>
 
       {/* Floating message button */}
-      <div className="message-fab" aria-live="polite">
+      <div className="message-fab" aria-live="polite" ref={messageFabRef}>
         <button
           type="button"
           className="message-fab__button"

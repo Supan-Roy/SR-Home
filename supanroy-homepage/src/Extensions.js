@@ -49,6 +49,10 @@ const Extensions = () => {
         {
           label: 'Chrome Web Store',
           url: 'https://chromewebstore.google.com/detail/gnfmkpjejlmnohabakglhkfbailhabea?utm_source=item-share-cb'
+        },
+        {
+          label: 'Microsoft Edge Add-ons',
+          url: 'https://microsoftedge.microsoft.com/addons/detail/glkoenaknlhmcgmaajiemjnpdoolcldh'
         }
       ]
     },
@@ -61,6 +65,10 @@ const Extensions = () => {
         {
           label: 'Chrome Web Store',
           url: 'https://chromewebstore.google.com/detail/hekkbldegloakmhpghkmfjdbdhpfeggp?utm_source=item-share-cb'
+        },
+        {
+          label: 'Microsoft Edge Add-ons',
+          url: 'https://microsoftedge.microsoft.com/addons/detail/bfiidogdbehlnbojgaimcjaibgfmcdhc'
         }
       ]
     }
@@ -71,9 +79,9 @@ const Extensions = () => {
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-content">
-          <div className="logo">
+          <a className="logo" href="/" aria-label="Go to home page">
             <img src="/favicon.svg" alt="SR Logo" className="logo-img" />
-          </div>
+          </a>
           <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
             <li className="mobile-visible"><a href="/" onClick={() => setMenuOpen(false)}>About</a></li>
             <li className="mobile-visible"><a href="/#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>

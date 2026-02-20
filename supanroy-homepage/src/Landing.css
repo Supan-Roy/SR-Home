@@ -815,8 +815,10 @@ body {
 }
 
 .message-panel__textarea {
-  resize: vertical;
-  min-height: 120px;
+  resize: none;
+  height: 120px;
+  max-height: 120px;
+  overflow-y: auto;
 }
 
 .message-panel__error {
@@ -919,6 +921,11 @@ body {
     right: 1rem;
     bottom: 4rem;
     width: calc(100vw - 2rem);
+  }
+
+  .scroll-indicator {
+    position: static;
+    margin-top: 1.5rem;
   }
 }
 
