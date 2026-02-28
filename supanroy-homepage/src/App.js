@@ -4,6 +4,7 @@ import Landing from './Landing';
 import Extensions from './Extensions';
 import Projects from './Projects';
 import Games from './Games';
+import AuthDeckDownload from './AuthDeckDownload';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/extensions" element={<Extensions />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/authdeck-download" element={<AuthDeckDownload />} />
           <Route path="/games" element={<Games />} />
         </Routes>
       </div>

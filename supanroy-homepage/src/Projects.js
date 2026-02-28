@@ -101,6 +101,42 @@ const Projects = () => {
                 Live Application
               </a>
             </div>
+
+            <div className="project-card">
+              <div className="project-icon">
+                <img src="/authdeck-icon.png" alt="AuthDeck Logo" style={{width: 56, height: 56, borderRadius: 8, background: '#000'}} />
+              </div>
+              <div className="project-header">
+                <h2 className="project-title">AuthDeck</h2>
+              </div>
+              <p className="project-description">
+                <strong>AuthDeck</strong> is a desktop authenticator app built for Windows that helps users securely manage and generate 2FA/TOTP codes in one place.<br /><br />
+                <strong>AuthDeck</strong> is designed as a privacy-first alternative to phone-based authenticators, with all data stored locally and protected by app-level security.<br /><br />
+                <strong>Key Features:</strong>
+                <ul style={{textAlign: 'left', margin: '0.5em 0 0 1.2em', fontSize: '0.98em'}}>
+                  <li>Manage OTP-based two-factor authentication accounts (GitHub, Google, and more)</li>
+                  <li>Add accounts via QR scan or manual secret entry</li>
+                  <li>Quickly copy live rotating codes for fast desktop login workflows</li>
+                  <li>Optional 4-digit PIN lock with PIN-gated sensitive actions</li>
+                  <li>Encrypted backup export/import for secure migration</li>
+                  <li>Fast search and drag-drop account reordering</li>
+                  <li>Click-to-copy sidebar with copy feedback animation</li>
+                  <li>Dark/light themes and system tray integration for quick access</li>
+                  <li>Distributed as standalone <code>.exe</code> and installable setup package</li>
+                </ul>
+              </p>
+              <div className="project-tech-icons">
+                <span title="Python" style={{display:'inline-block',width:36,height:36,verticalAlign:'middle'}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 100 100"><path fill="#3776AB" d="M49.86 5.82c-23.15 0-21.7 10.04-21.7 10.04l.03 10.4h22.08v3.12H19.42S4.62 27.7 4.62 51.2c0 23.5 12.9 22.65 12.9 22.65h7.7V63.03s-.42-12.9 12.7-12.9h21.92s12.3.2 12.3-11.9V18.2s1.87-12.4-22.28-12.4Zm-12.17 7.14a4.02 4.02 0 1 1 0 8.03 4.02 4.02 0 0 1 0-8.03Z"/><path fill="#FFD43B" d="M50.52 96.2c23.14 0 21.7-10.03 21.7-10.03l-.04-10.4H50.1v-3.13h30.87s14.8 1.7 14.8-21.82c0-23.5-12.9-22.64-12.9-22.64h-7.7V38.98s.42 12.9-12.7 12.9H40.55s-12.3-.2-12.3 11.9V83.8s-1.87 12.4 22.27 12.4Zm12.17-7.14a4.01 4.01 0 1 1 0-8.03 4.01 4.01 0 0 1 0 8.03Z"/></svg>
+                </span>
+                <span title="Windows" style={{display:'inline-block',width:36,height:36,verticalAlign:'middle'}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 100 100"><path fill="#00A4EF" d="M4 14.2 40.5 9v38.9H4zm40.5-5.8L96 1v46.9H44.5zM4 52.1h36.5V91L4 85.8zm40.5 0H96V99l-51.5-7.2z"/></svg>
+                </span>
+              </div>
+              <a className="project-live-btn" href="/projects/authdeck-download">
+                Download
+              </a>
+            </div>
           </div>
         </section>
       </div>

@@ -1,0 +1,183 @@
+/* AuthDeck Download Page */
+
+.authdeck-download-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  color: var(--text);
+}
+
+.authdeck-download-container {
+  width: 100%;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.authdeck-download-hero {
+  min-height: 44vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 6rem 2rem 3rem;
+  margin-top: 60px;
+  overflow: hidden;
+}
+
+.authdeck-download-hero-content {
+  text-align: center;
+  z-index: 10;
+  animation: authdeckFadeInUp 0.8s ease-out;
+}
+
+.authdeck-download-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.authdeck-download-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.authdeck-download-stars,
+.authdeck-download-stars2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.authdeck-download-stars {
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, var(--primary), rgba(255, 235, 59, 0)),
+    radial-gradient(2px 2px at 60% 70%, var(--secondary), rgba(255, 193, 7, 0)),
+    radial-gradient(1px 1px at 50% 50%, var(--primary), rgba(255, 235, 59, 0)),
+    radial-gradient(1px 1px at 80% 10%, var(--secondary), rgba(255, 193, 7, 0));
+  background-repeat: repeat;
+  background-size: 200% 200%;
+  animation: authdeckTwinkle 5s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+.authdeck-download-stars2 {
+  background-image:
+    radial-gradient(1px 1px at 25% 40%, var(--primary), rgba(255, 235, 59, 0)),
+    radial-gradient(2px 2px at 75% 80%, var(--secondary), rgba(255, 193, 7, 0));
+  background-repeat: repeat;
+  background-size: 150% 150%;
+  animation: authdeckTwinkle 7s ease-in-out infinite reverse;
+  opacity: 0.2;
+}
+
+.authdeck-download-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+.authdeck-download-card {
+  position: relative;
+  z-index: 10;
+  background: var(--darker, #181818);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 235, 59, 0.14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.authdeck-download-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 18px;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.authdeck-download-app-name {
+  color: var(--primary, #ffeb3b);
+  font-size: 1.9rem;
+  margin: 0.15rem 0 0.5rem;
+}
+
+.authdeck-download-version {
+  color: #e8e8e8;
+  font-size: 1.08rem;
+  margin: 0 0 1.3rem;
+}
+
+.authdeck-download-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--primary, #ffeb3b), var(--secondary, #ffc107));
+  color: #191919;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 2rem;
+  padding: 0.82rem 1.4rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+  box-shadow: 0 6px 18px rgba(255, 193, 7, 0.22);
+}
+
+.authdeck-download-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, var(--secondary, #ffc107), var(--primary, #ffeb3b));
+}
+
+.authdeck-back-btn {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.authdeck-back-btn:hover {
+  color: var(--secondary, #ffc107);
+}
+
+@keyframes authdeckTwinkle {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes authdeckFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .authdeck-download-title {
+    font-size: 2.3rem;
+  }
+
+  .authdeck-download-subtitle {
+    font-size: 1rem;
+  }
+
+  .authdeck-download-card {
+    padding: 1.8rem 1.2rem;
+  }
+}
